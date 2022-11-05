@@ -10,12 +10,14 @@ function App() {
     <>
       {/* wrapping child component with */}
       <ErrorBoundary>
-        <UseCounterReducer action="handleIncrement" />
+        <Routes>
+          <Route
+            path="/"
+            element={<UseCounterReducer action="handleIncrement" />}
+          />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
       </ErrorBoundary>
-      <Routes>
-        <Route path="/" element={<UseCounterReducer />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
     </>
   );
 }
