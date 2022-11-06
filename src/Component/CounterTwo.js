@@ -1,39 +1,27 @@
-import React, { useReducer, useState, useEffect } from "react";
+import React, { useReducer, useRef } from "react";
 import { Helmet } from "react-helmet";
+import useCounterReducer from "../Pages/UseCounterReducer";
 
-const initialState = 0;
-//Custom Hook
-function CountReducer(initialState, action) {
-  switch (action.type) {
-    case "handleIncrement":
-      // console.log({ action });
-      return initialState + 1;
-    case "handleReset":
-      return (initialState = 0);
-    case "handleDecrement":
-      return initialState - 1;
-    case "setValue":
-      return (initialState = action.payload);
-    default:
-      return initialState;
+const initialState = { count: 0, setCount: 0 };
+function CounterTwo() {
+  const [count, dispatch] = useReducer(useCounterReducer, initialState);
+  const inputRef = useRef();
+  console.log(count);
+
+  function setTheCount(ref) {
+    console.log(ref);
+    dispatch({
+      type: "setValue",
+      payload: { newCount: ref.current.value },
+    });
+    ref.currentValue = "";
   }
-}
 
-//useReducer
-function UseCounterReducer() {
-  const [count, dispatch] = useReducer(CountReducer, initialState);
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    if (count === -1) {
-      throw new Error("Something went wrong");
-    }
-  }, [count]);
   return (
     <>
       <main className="card-main">
         <Helmet>
-          <title>Counter App Home Page</title>
+          <title>Counter App One Home Page</title>
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
           <meta
             name="description"
@@ -45,7 +33,7 @@ function UseCounterReducer() {
           <div className="card-body">
             <div className="card-action">
               <div className="card-btn"></div>
-              <h2>Count - {count}</h2>
+              <div>Count = {count.count}</div>
               <button
                 className="increment-btn"
                 onClick={() => dispatch({ type: "handleIncrement" })}>
@@ -64,17 +52,17 @@ function UseCounterReducer() {
 
               <div>
                 <input
-                  onChange={(e) => setValue(e.target.value)}
                   className="input-value"
                   placeholder={"Number"}
                   type={"number"}
-                  value={value}
+                  ref={inputRef}
+                  // value={}
                 />
                 <button
                   className="set-value"
-                  onClick={() =>
-                    dispatch({ type: "setValue", payload: parseInt(value) })
-                  }>
+                  onClick={(e) => {
+                    setTheCount(inputRef);
+                  }}>
                   Set
                 </button>
               </div>
@@ -85,4 +73,5 @@ function UseCounterReducer() {
     </>
   );
 }
-export default UseCounterReducer;
+
+export default CounterTwo;
