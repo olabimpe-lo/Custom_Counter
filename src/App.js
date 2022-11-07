@@ -5,12 +5,12 @@ import ErrorBoundary from "./Pages/ErrorBoundary";
 import ErrorPage from "./Pages/404Page";
 import "./App.css";
 import CounterTwo from "./Component/CounterTwo";
-// import { Navbar } from "./Component/Navbar";
+import { Navbar } from "./Component/Navbar";
 
 function App() {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       {/* wrapping child component with */}
       <ErrorBoundary>
         <Routes>

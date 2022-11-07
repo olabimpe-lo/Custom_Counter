@@ -29,7 +29,7 @@
 }
 
 .card-action {
-  font-size: 50px;
+  font-size: 30px;
 }
 .increment-btn {
   background-color: #4CAF50;
@@ -59,7 +59,7 @@
 .set-value {
   background-color: #808080;
   font-size: 15px;
-  padding:5px;
+  padding:10px;
   text-align: center;
   display: inline-block;
 }
@@ -68,7 +68,22 @@
  padding:10px;
  border: 2px solid #808080;
  display: inline-block;
- font-size: 12px;
+ font-size: 15px;
+}
+
+nav {
+  background-color: aliceblue;
+  padding:16px 32px;
+}
+
+nav a {
+  margin-right: 16px;
+}
+
+nav a.active {
+  text-decoration:none ;
+  font-weight:bold;
+  font-size: 15px;
 }
 
 

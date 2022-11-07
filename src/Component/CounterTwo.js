@@ -1,12 +1,16 @@
-import React, { useReducer, useRef } from "react";
+import React, { useReducer,  useRef } from "react";
 import { Helmet } from "react-helmet";
 import useCounterReducer from "../Pages/UseCounterReducer";
 
 const initialState = { count: 0, setCount: 0 };
+
 function CounterTwo() {
   const [count, dispatch] = useReducer(useCounterReducer, initialState);
   const inputRef = useRef();
-  console.log(count);
+
+  if (count === 5) {
+    throw new Error("Count is 5. Error Occurred.");
+  }
 
   function setTheCount(ref) {
     console.log(ref);

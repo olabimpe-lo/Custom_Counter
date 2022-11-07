@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export function Navbar() {
   return (
     <nav>
-      <Link to="/">Counter App Home Page</Link>
-      <Link to="/CustomCounter">Custom Counter App Home Page</Link>
+      <NavLink to="/"> UseReducer</NavLink>
+      <NavLink to="/customhook"> CustomHook</NavLink>
+      <NavLink to="*">ErrorPage</NavLink>
       <div>Navbar</div>
     </nav>
   );

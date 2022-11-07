@@ -22,7 +22,7 @@ function CounterOne() {
           <div className="card-body">
             <div className="card-action">
               <div className="card-btn"></div>
-              <h2>Count - {count}</h2>
+              <div>Count - {count}</div>
               <button className="increment-btn" onClick={handleIncrement}>
                 Increment
               </button>
