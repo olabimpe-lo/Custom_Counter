@@ -1,25 +1,30 @@
-import React from "react";
+import React, {Component} from "react";
 import { Route, Routes } from "react-router-dom";
 import CounterOne from "./Component/CounterOne";
 import ErrorBoundary from "./Pages/ErrorBoundary";
 import ErrorPage from "./Pages/404Page";
 import "./App.css";
 import CounterTwo from "./Component/CounterTwo";
-import { Navbar } from "./Component/Navbar";
+import Navbar  from "./Component/Navbar";
+// import { useState } from "react";
+import { render } from "@testing-library/react";
 
-function App() {
+ class App extends Component() {
+render() {
   return (
     <>
       <Navbar />
       {/* wrapping child component with */}
       <ErrorBoundary>
         <Routes>
-          <Route path="/" element={<CounterTwo />} />
+          <CounterTwo />
+          {/* <Route path="/" element={<CounterTwo/>} /> */}
+          <Route path="/custom-hook" element={<CounterOne />} />
           <Route path="*" element={<ErrorPage />} />
-          <Route path="customhook" element={<CounterOne />} />
         </Routes>
       </ErrorBoundary>
     </>
   );
+}
 }
 export default App;
