@@ -11,7 +11,7 @@ function CounterTwo() {
 
   const [value, setCount] = useState(0);
   
-  if (count === 5) {
+  if (value === 5) {
     throw new Error("Count is 5. Error Occurred.");
   }
   // if (count === 5) {
@@ -32,19 +32,10 @@ function CounterTwo() {
       <ErrorBoundary>
         <main className="card-main">
           <Helmet>
-            <title>Counter App One Home Page</title>
-            <meta
-              http-equiv="Content-Type"
-              content="text/html; charset=utf-8"
-            />
+            <title>Counter App One Home Page</title>  
             <meta
               name="description"
-              content="A counter app with an iplementation of increase, decrease, reset and set value"
-            />
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1"
-            />
+              content="A counter app with an implementation of increase, decrease, reset and set value using a hook called useReducer"/>
           </Helmet>
           <div className="card-center">
             <div className="card-body">

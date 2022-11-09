@@ -11,12 +11,12 @@ function CounterOne() {
       <main className="card-main">
         <Helmet>
           <title>Counter App One Home Page</title>
-          <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+          
           <meta
             name="description"
             content="A counter app with an iplementation of increase, decrease, reset and set value"
           />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+       
         </Helmet>
         <div className="card-center">
           <div className="card-body">
