@@ -7,7 +7,7 @@ import "./App.css";
 import CounterTwo from "./Component/CounterTwo";
 import Navbar from "./Component/Navbar";
 // import { useState } from "react";
- 
+
 class App extends Component {
   render() {
     return (

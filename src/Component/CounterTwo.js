@@ -1,22 +1,13 @@
-import React, { useReducer,  useRef , useState} from "react";
+import React, { useReducer, useRef } from "react";
 import { Helmet } from "react-helmet";
 import useCounterReducer from "../Pages/UseCounterReducer";
-import ErrorBoundary from "../Pages/ErrorBoundary";                                 
+import ErrorBoundary from "../Pages/ErrorBoundary";
 
 const initialState = { count: 0, setCount: 0 };
 
 function CounterTwo() {
   const [count, dispatch] = useReducer(useCounterReducer, initialState);
   const inputRef = useRef();
-
-  const [value, setCount] = useState(0);
-  
-  if (value === 5) {
-    throw new Error("Count is 5. Error Occurred.");
-  }
-  // if (count === 5) {
-  //   throw new Error("Count is 5. Error Occurred.");
-  // }
 
   function setTheCount(ref) {
     console.log(ref);
@@ -32,10 +23,11 @@ function CounterTwo() {
       <ErrorBoundary>
         <main className="card-main">
           <Helmet>
-            <title>Counter App One Home Page</title>  
+            <title>Counter App One Home Page</title>
             <meta
               name="description"
-              content="A counter app with an implementation of increase, decrease, reset and set value using a hook called useReducer"/>
+              content="A counter app with an implementation of increase, decrease, reset and set value using a hook called useReducer"
+            />
           </Helmet>
           <div className="card-center">
             <div className="card-body">
@@ -64,7 +56,6 @@ function CounterTwo() {
                     placeholder={"Number"}
                     type={"number"}
                     ref={inputRef}
-                    // value={}
                   />
                   <button
                     className="set-value"

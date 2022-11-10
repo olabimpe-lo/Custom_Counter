@@ -1,22 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Helmet } from "react-helmet";
 import useCounterHook from "../Pages/useCounterHook";
 
 function CounterOne() {
   const [count, handleIncrement, handleDecrement, handleReset, setValue] =
-    useCounterHook(10);
+    useCounterHook();
+
+    const [value, newValue] = useState (1)
 
   return (
     <>
       <main className="card-main">
         <Helmet>
           <title>Counter App One Home Page</title>
-          
+
           <meta
             name="description"
             content="A counter app with an iplementation of increase, decrease, reset and set value"
           />
-       
         </Helmet>
         <div className="card-center">
           <div className="card-body">
@@ -35,16 +36,18 @@ function CounterOne() {
 
               <div>
                 <input
-                  onChange={(e) => setValue(e.target.value)}
+                  onChange={(e) => newValue(e.target.value)}
                   className="input-value"
                   placeholder={"Number"}
                   type={"number"}
-                  value={count}
+                  value={value}
+              
                 />
                 <button
                   className="set-value"
-                  onClick={(e) => {
-                    payload: parseInt(count);
+                  onClick={() => {
+                    setValue( parseInt(value));
+                    console.log({value})
                   }}>
                   Set
                 </button>
